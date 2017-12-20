@@ -10,11 +10,27 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'armeabi-v7a' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
         }
     }
 }
@@ -28,4 +44,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation project(':mylibrary')
+    compile(name: 'LumiSDK', ext: 'aar')
+    compile(name:'biz_xiaodi_sdk-release-v3.4.2', ext:'aar')
+    compile(name: 'lib_base-release-v3.4.4', ext: 'aar')
+    compile(name:'lib_bluetoothle-release-v3.4.1', ext:'aar')
 }
