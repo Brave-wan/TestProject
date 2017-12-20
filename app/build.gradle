@@ -44,8 +44,20 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation project(':mylibrary')
-    compile(name: 'LumiSDK', ext: 'aar')
-    compile(name:'biz_xiaodi_sdk-release-v3.4.2', ext:'aar')
-    compile(name: 'lib_base-release-v3.4.4', ext: 'aar')
-    compile(name:'lib_bluetoothle-release-v3.4.1', ext:'aar')
+    compile(name: 'LumiSDK', ext: 'aar'){
+        force = true
+        transitive = false
+    }
+    compile(name:'biz_xiaodi_sdk-release-v3.4.2', ext:'aar'){
+        force = true
+        transitive = false
+    }
+    compile(name: 'lib_base-release-v3.4.4', ext: 'aar'){
+        force = true
+        transitive = false
+    }
+    compile(name:'lib_bluetoothle-release-v3.4.1', ext:'aar'){
+        force = true
+        transitive = false
+    }
 }
